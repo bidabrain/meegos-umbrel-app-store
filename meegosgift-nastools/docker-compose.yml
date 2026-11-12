@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Format: <app-id>_<docker-service-name>_1
+      APP_HOST: meegosgift-nastools_server_1
+      APP_PORT: 3000
+
+  server:
+    image: hsuyelin/nas-tools:3.4.1@sha256:06479d6ef4b0c0e175f257b82ff9b67367ee2ef1578d8dab7ca0bad45ef766c0
+    hostname: nas-tools
+    restart: on-failure
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      UMASK: "022"
+      # The upstream GitHub repo no longer exists, so self-update cannot work.
+      NASTOOL_AUTO_UPDATE: "false"
+      NASTOOL_CN_UPDATE: "false"
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      # Whole umbrelOS storage (Downloads etc.) is visible at /media inside NAS-Tools.
+      - ${UMBREL_ROOT}/data/storage:/media

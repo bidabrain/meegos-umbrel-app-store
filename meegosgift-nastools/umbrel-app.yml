@@ -1,0 +1,44 @@
+manifestVersion: 1
+id: meegosgift-nastools
+name: NAS-Tools
+tagline: NAS 媒体库管理工具：订阅、下载、整理、刮削一站式
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nastool.png
+category: media
+version: "3.4.1"
+port: 3301
+description: >-
+  NAS-Tools 是一个 NAS 媒体库管理工具，支持影视资源订阅、自动下载、文件识别整理、
+  元数据刮削，以及与 Jellyfin / Emby / Plex 等媒体服务器和下载器的联动。
+
+  NAS-Tools is a media library manager for NAS: subscribe to shows and movies,
+  auto-download, rename/organize files and scrape metadata, working with media
+  servers (Jellyfin / Emby / Plex) and download clients.
+
+
+  目录 / Paths:
+
+  umbrelOS 存储目录（含 Downloads）在容器内挂载为 /media，例如下载目录为 /media/downloads。
+  配置保存在 ~/umbrel/app-data/meegosgift-nastools/data/config。
+
+  The umbrelOS storage (including Downloads) is mounted at /media, e.g.
+  /media/downloads.
+
+
+  默认登录 / Default login: admin / password（首次登录后请立即修改）。
+
+
+  注意：上游 GitHub 仓库已不可用，程序不再更新，已关闭自动更新。
+  Note: the upstream repository is no longer available; auto-update is disabled.
+developer: hsuyelin
+website: https://hub.docker.com/r/hsuyelin/nas-tools
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://hub.docker.com/r/hsuyelin/nas-tools
+support: https://github.com/bidabrain/meegos-umbrel-app-store/issues
+gallery: []
+releaseNotes: >-
+  Initial release in the MeegosGift App Store, based on NAS-Tools 3.4.1.
+dependencies: []
+path: ""
+defaultUsername: "admin"
+defaultPassword: "password"
