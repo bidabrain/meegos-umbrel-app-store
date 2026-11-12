@@ -1,0 +1,38 @@
+manifestVersion: 1
+id: meegosgift-openlist
+name: OpenList
+tagline: A new AList fork to anti trust crisis
+icon: https://cdn.jsdelivr.net/gh/Cp0204/CasaOS-AppStore-Play@main/Apps/openlist/icon.png
+category: files
+version: "4.2.9"
+port: 5244
+description: >-
+  A file list program that supports multiple storages, powered by Gin and
+  SolidJS, fork of AList.
+
+
+  一个支持多存储的文件列表程序，使用 Gin 和 SolidJS，基于 AList 项目 fork 开发。
+
+
+  After installation, view the initial admin password in the app logs
+  (Settings > Troubleshoot > OpenList).
+  安装完成后，请在应用日志中查看初始管理员密码。
+
+
+  Your umbrelOS Downloads folder is mounted at /opt/openlist/data1 and can be
+  added as a "Local" storage in OpenList.
+  umbrelOS 的 Downloads 目录挂载在 /opt/openlist/data1，可在 OpenList 中添加为本机存储。
+developer: OpenList Team
+website: https://github.com/OpenListTeam/OpenList
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://github.com/OpenListTeam/OpenList
+support: https://github.com/OpenListTeam/OpenList/issues
+gallery:
+  - https://cdn.jsdelivr.net/gh/Cp0204/CasaOS-AppStore-Play@main/Apps/openlist/screenshot-1.png
+releaseNotes: >-
+  Initial release in the MeegosGift App Store, based on OpenList v4.2.9.
+dependencies: []
+path: ""
+defaultUsername: "admin"
+defaultPassword: ""
