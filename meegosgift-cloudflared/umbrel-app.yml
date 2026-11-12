@@ -1,0 +1,50 @@
+manifestVersion: 1
+id: meegosgift-cloudflared
+name: Cloudflared
+tagline: Cloudflare Tunnel with a simple web UI to expose your Umbrel safely
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Cloudflared/icon.png
+category: networking
+version: "2026.10.7"
+port: 14333
+description: >-
+  Cloudflare Tunnel offers an easy way to expose web servers securely to the
+  internet, without opening up firewall ports and configuring ACLs. Requests
+  route through Cloudflare before reaching your server, so attack traffic is
+  stopped by Cloudflare's WAF and unmetered DDoS mitigation, and can be
+  authenticated with Cloudflare Access.
+
+  Cloudflare Tunnel 提供了一种简单的方法，无需打开防火墙端口和配置 ACL，即可安全地将
+  Web 服务暴露到互联网。所有请求先经过 Cloudflare，可由其 WAF 和 DDoS 防护拦截攻击流量，
+  并可通过 Cloudflare Access 进行身份验证。
+
+
+  Setup / 设置:
+
+  1. Create a remotely-managed tunnel in the Cloudflare Zero Trust dashboard and
+  copy its token. 在 Cloudflare Zero Trust 控制台创建远程管理的隧道并复制 token。
+
+  2. Open this app (username: admin, password shown in Umbrel), paste the token
+  and click Start. 打开本应用（用户名 admin，密码见 Umbrel 显示），粘贴 token 并启动。
+
+  3. In Cloudflare, add public hostnames pointing to local services, e.g.
+  http://localhost:<port>. 在 Cloudflare 中添加公共主机名，指向本地服务，例如
+  http://localhost:<端口>。
+
+
+  Guide / 教程: https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/
+developer: WisdomSky
+website: https://github.com/WisdomSky/Cloudflared-web
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://github.com/WisdomSky/Cloudflared-web
+support: https://github.com/WisdomSky/Cloudflared-web/issues
+gallery:
+  - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Cloudflared/screenshot-1.png
+  - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Cloudflared/screenshot-2.png
+  - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Cloudflared/screenshot-3.png
+releaseNotes: >-
+  Initial release in the MeegosGift App Store, based on Cloudflared-web 2026.10.7.
+dependencies: []
+path: ""
+defaultUsername: "admin"
+deterministicPassword: true

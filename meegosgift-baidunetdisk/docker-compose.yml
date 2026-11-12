@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Format: <app-id>_<docker-service-name>_1
+      APP_HOST: meegosgift-baidunetdisk_server_1
+      APP_PORT: 5800
+
+  server:
+    # Only "latest" is multi-arch (versioned tags are per-arch), so pin it by digest.
+    image: johngong/baidunetdisk:latest@sha256:99a0f33a808a866ffc857cb1059e72dd83500b7db9103533be1aa88ebbc4d54c
+    restart: on-failure
+    # Recommended by the image docs: avoids "render-process-gone crashed"
+    # (blank login page) and "ERROR MEMORY sqlcipher_mlock".
+    shm_size: 128mb
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    environment:
+      USER_ID: "1000"
+      GROUP_ID: "1000"
+      NOVNC_LANGUAGE: zh_Hans
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${UMBREL_ROOT}/data/storage/downloads:/config/baidunetdiskdownload

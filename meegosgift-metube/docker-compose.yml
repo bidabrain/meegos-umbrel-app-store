@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Format: <app-id>_<docker-service-name>_1
+      APP_HOST: meegosgift-metube_server_1
+      APP_PORT: 8081
+
+  server:
+    image: ghcr.io/alexta69/metube:2026.11.10@sha256:6654866e76eab4228530dc5ed828ccfd702d1ee810feab2d629028272b399e14
+    restart: on-failure
+    environment:
+      UID: "1000"
+      GID: "1000"
+      DELETE_FILE_ON_TRASHCAN: "true"
+      # Mount the Downloads root (owned by 1000) and let MeTube create its own
+      # subfolder, so Docker never creates a root-owned dir it cannot write to.
+      DOWNLOAD_DIR: /downloads/metube
+      AUDIO_DOWNLOAD_DIR: /downloads/metube
+      TEMP_DIR: /downloads/metube/.tmp
+      STATE_DIR: /state
+    volumes:
+      - ${UMBREL_ROOT}/data/storage/downloads:/downloads
+      - ${APP_DATA_DIR}/data/state:/state

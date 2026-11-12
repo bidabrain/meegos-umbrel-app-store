@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  web:
+    image: wisdomsky/cloudflared-web:2026.10.7
+    # Host networking is required so cloudflared can reach services running on
+    # the host (e.g. http://localhost:<port>). Web UI: http://umbrel.local:14333
+    network_mode: host
+    restart: on-failure
+    environment:
+      WEBUI_PORT: "14333"
+      # Protect the Web UI with the Umbrel-generated password (deterministicPassword).
+      BASIC_AUTH_USER: admin
+      BASIC_AUTH_PASS: ${APP_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config

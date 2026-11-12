@@ -15,3 +15,21 @@ This repository is a template to create an Umbrel Community App Store. These add
 
 
 https://user-images.githubusercontent.com/10330103/197889452-e5cd7e96-3233-4a09-b475-94b754adc7a3.mp4
+
+## Umbrel 数据目录 / Umbrel data paths
+
+在 `docker-compose.yml` 中请使用变量引用，不要写死绝对路径。
+Use the variables in `docker-compose.yml` instead of hard-coding absolute paths.
+
+| 用途 / Purpose | 宿主机路径 / Host path | compose 写法 / In compose |
+|---|---|---|
+| Umbrel 数据根目录 / Umbrel root | `/home/umbrel/umbrel` | `${UMBREL_ROOT}` |
+| 用户共享存储 / Shared storage | `/home/umbrel/umbrel/data/storage` | `${UMBREL_ROOT}/data/storage` |
+| 下载目录（下载类应用共用）/ Downloads (shared by downloader apps) | `/home/umbrel/umbrel/data/storage/downloads` | `${UMBREL_ROOT}/data/storage/downloads` |
+| 应用私有数据 / Per-app data | `/home/umbrel/umbrel/app-data/<app-id>` | `${APP_DATA_DIR}` |
+
+官方应用（transmission、qBittorrent、Plex、Jellyfin）挂载 `${UMBREL_ROOT}/data/storage/downloads`，Samba 挂载 `${UMBREL_ROOT}/data/storage`。
+Official apps (transmission, qBittorrent, Plex, Jellyfin) mount `${UMBREL_ROOT}/data/storage/downloads`; Samba mounts `${UMBREL_ROOT}/data/storage`.
+
+> umbrelOS 1.x 的“文件”应用在界面上使用 `/home/umbrel/umbrel/home`，具体映射关系请在设备上执行 `ls -la ~/umbrel ~/umbrel/home ~/umbrel/data/storage` 确认。
+> The umbrelOS 1.x Files app shows `/home/umbrel/umbrel/home`; verify the mapping on your device with `ls -la ~/umbrel ~/umbrel/home ~/umbrel/data/storage`.

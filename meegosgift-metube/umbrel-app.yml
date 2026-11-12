@@ -1,0 +1,32 @@
+manifestVersion: 1
+id: meegosgift-metube
+name: MeTube
+tagline: Download your favorite videos easily with MeTube
+icon: https://cdn.jsdelivr.net/gh/Cp0204/CasaOS-AppStore-Play@main/Apps/metube/icon.png
+category: media
+version: "2026.11.10"
+port: 8081
+description: >-
+  MeTube is a self-hosted YouTube downloader with a web UI for yt-dlp, enabling
+  easy downloading of your favorite videos from YouTube and many other sites.
+
+  MeTube 是一个自托管的 YouTube 下载器，提供 yt-dlp 的 Web 界面，可轻松下载 YouTube
+  及众多其他网站的视频。
+
+
+  Videos are saved to the umbrelOS Downloads folder under "metube".
+  视频保存在 umbrelOS Downloads 目录下的 metube 文件夹中。
+developer: alexta69
+website: https://github.com/alexta69/metube
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://github.com/alexta69/metube
+support: https://github.com/alexta69/metube/issues
+gallery:
+  - https://cdn.jsdelivr.net/gh/Cp0204/CasaOS-AppStore-Play@main/Apps/metube/screenshot.gif
+releaseNotes: >-
+  Initial release in the MeegosGift App Store, based on MeTube 2026.11.10.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

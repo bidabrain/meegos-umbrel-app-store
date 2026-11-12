@@ -1,0 +1,39 @@
+manifestVersion: 1
+id: meegosgift-baidunetdisk
+name: 百度网盘
+tagline: Baidu Netdisk desktop client in your browser
+icon: https://cdn.jsdelivr.net/gh/Cp0204/CasaOS-AppStore-Play@main/Apps/baidunetdisk/icon.png
+category: files
+version: "8.9.7"
+port: 5800
+description: >-
+  百度网盘 Linux 客户端，通过浏览器（noVNC）远程使用。登录后即可下载、上传网盘文件。
+
+  Baidu Netdisk Linux client running in a container, accessed from your browser
+  via noVNC.
+
+
+  下载目录 / Downloads:
+
+  文件默认下载到 umbrelOS 的 Downloads 目录（容器内 /config/baidunetdiskdownload）。
+  如未生效，请在客户端右上角「设置」中把下载位置改为 /config/baidunetdiskdownload。
+
+  Files are saved to the umbrelOS Downloads folder. If not, set the download
+  location to /config/baidunetdiskdownload in the client's settings.
+
+
+  如果登录界面空白或无法登录，可删除
+  ~/umbrel/app-data/meegosgift-baidunetdisk/data/config 下的 baidunetdiskdata.db 后重启应用。
+developer: gshang2017
+website: https://pan.baidu.com
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://github.com/gshang2017/docker
+support: https://github.com/gshang2017/docker/issues
+gallery: []
+releaseNotes: >-
+  Initial release in the MeegosGift App Store (baidunetdisk 8.9.7 amd64 / 4.17.7 arm64).
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

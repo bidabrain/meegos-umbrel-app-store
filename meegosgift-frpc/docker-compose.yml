@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+  web:
+    image: stilleshan/frpc:0.70.0
+    # Host networking so proxies can target local services via 127.0.0.1,
+    # and the frpc admin UI is reachable at http://umbrel.local:7400.
+    network_mode: host
+    user: "1000:1000"
+    restart: on-failure
+    environment:
+      # Umbrel-generated password (deterministicPassword), shown in the app's
+      # install dialog. Used by frpc.toml via {{ .Envs.FRPC_ADMIN_PASSWORD }}.
+      FRPC_ADMIN_PASSWORD: ${APP_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data:/config
+    command:
+      - sh
+      - -c
+      - |
+        if [ ! -f /config/frpc.toml ]; then
+          echo "No /config/frpc.toml found, writing default config"
+          cat > /config/frpc.toml <<'TOML'
+        # Edit this file in the frpc admin UI (port 7400) or at
+        # ~/umbrel/app-data/meegosgift-frpc/data/frpc.toml, then restart the app.
+        serverAddr = "frps.example.com"
+        serverPort = 7000
+        # auth.token = "your-token"
+
+        # Keep running (and keep the admin UI up) even if the server is unreachable.
+        loginFailExit = false
+
+        webServer.addr = "0.0.0.0"
+        webServer.port = 7400
+        webServer.user = "admin"
+        webServer.password = "{{ .Envs.FRPC_ADMIN_PASSWORD }}"
+
+        # Example: expose Umbrel's web UI
+        # [[proxies]]
+        # name = "umbrel-web"
+        # type = "tcp"
+        # localIP = "127.0.0.1"
+        # localPort = 80
+        # remotePort = 6080
+        TOML
+        fi
+        exec /frp/frpc -c /config/frpc.toml

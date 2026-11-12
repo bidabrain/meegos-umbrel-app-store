@@ -1,0 +1,40 @@
+manifestVersion: 1
+id: meegosgift-frpc
+name: frpc
+tagline: Fast reverse proxy client to expose your Umbrel behind NAT
+icon: https://icon.casaos.io/main/all/frpc.png
+category: networking
+version: "0.70.0"
+port: 7400
+description: >-
+  frpc is the client of frp, a fast reverse proxy that exposes local services
+  behind NAT or a firewall to the internet through your own frps server.
+
+  frpc 是 frp 的客户端，通过你自己的 frps 服务器把内网服务暴露到公网。
+
+
+  Configuration / 配置:
+
+  The config file is at ~/umbrel/app-data/meegosgift-frpc/data/frpc.toml
+  (created with defaults on first start). You can also edit it in the frpc
+  admin UI opened by this app (username: admin, password shown in Umbrel).
+
+  配置文件位于 ~/umbrel/app-data/meegosgift-frpc/data/frpc.toml（首次启动自动生成默认配置），
+  也可以在本应用打开的 frpc 管理界面中修改（用户名 admin，密码见 Umbrel 显示）。
+
+
+  Keep the webServer section in your config, otherwise the Umbrel app page
+  will not open. 请保留配置中的 webServer 部分，否则 Umbrel 中无法打开应用页面。
+developer: fatedier
+website: https://github.com/fatedier/frp
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://github.com/fatedier/frp
+support: https://github.com/fatedier/frp/issues
+gallery: []
+releaseNotes: >-
+  Initial release in the MeegosGift App Store, based on frp v0.70.0.
+dependencies: []
+path: ""
+defaultUsername: "admin"
+deterministicPassword: true
