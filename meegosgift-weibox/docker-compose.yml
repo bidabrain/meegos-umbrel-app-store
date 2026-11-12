@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Format: <app-id>_<docker-service-name>_1
+      APP_HOST: meegosgift-weibox_server_1
+      APP_PORT: 8000
+      # The Android app calls /api/v1 with its own API Token, so Umbrel's login
+      # must not sit in front. The WebUI is protected by WEIBOX_ADMIN_PASSWORD.
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    # Umbrel only pulls on install/update. To upgrade: `docker pull
+    # bidabrain/weibox-server:latest` and restart the app, or bump `version`
+    # in umbrel-app.yml so Umbrel offers an update.
+    image: bidabrain/weibox-server:latest
+    restart: on-failure
+    # Headless Chromium (Playwright) needs a larger /dev/shm.
+    shm_size: "1gb"
+    environment:
+      # Umbrel-generated password (deterministicPassword), shown in Umbrel.
+      WEIBOX_ADMIN_PASSWORD: ${APP_PASSWORD}
+      WEIBOX_ENABLE_BROWSER: "true"
+      WEIBOX_DATA_DIR: /data
+    volumes:
+      # SQLite, tokens, secret key; put firebase-key.json here to enable FCM push.
+      - ${APP_DATA_DIR}/data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/healthz').status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
