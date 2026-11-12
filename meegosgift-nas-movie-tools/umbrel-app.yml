@@ -1,0 +1,45 @@
+manifestVersion: 1
+id: meegosgift-nas-movie-tools
+name: NAS Movie Tools
+tagline: 监控下载目录，经 TMDB 识别后整理进 Jellyfin 媒体库
+icon: https://raw.githubusercontent.com/bidabrain/nas_movie_tools/main/icon.svg
+category: media
+version: "latest"
+port: 3302
+description: >-
+  一个精简、现代化的 NAS 影视整理工具：监控下载目录 → 通过 TMDB 识别影片 → 按分类整理进
+  Jellyfin 媒体库（附带 NFO 和海报）→ 通知 Jellyfin 扫描 → 推送 Telegram / Gotify 通知。
+  参考 NAStool 的整理思路重新编写，只保留「整理入库」这一条链路。
+
+
+  使用 / Usage:
+
+  1. 用户名 admin，密码见 Umbrel 显示。
+
+  2. 设置 → TMDB：填写 API Key。
+
+  3. 监控目录 → 添加目录，例如 /data/downloads → /data/media。
+
+  4. 设置 → Jellyfin / 通知：按需填写。
+
+
+  umbrelOS 存储目录挂载在 /data（下载目录为 /data/downloads）。整理到 /data 下的目录才能使用硬链接。
+
+
+  A lean media organizer: watches download folders, identifies titles via
+  TMDB, organizes them into a Jellyfin library with NFO files and artwork, then
+  triggers a Jellyfin scan and sends Telegram / Gotify notifications. The
+  umbrelOS storage is mounted at /data (downloads at /data/downloads).
+developer: bidabrain
+website: https://github.com/bidabrain/nas_movie_tools
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://github.com/bidabrain/nas_movie_tools
+support: https://github.com/bidabrain/nas_movie_tools/issues
+gallery: []
+releaseNotes: >-
+  Initial release in the MeegosGift App Store (ghcr.io/bidabrain/nas_movie_tools:latest).
+dependencies: []
+path: ""
+defaultUsername: "admin"
+deterministicPassword: true

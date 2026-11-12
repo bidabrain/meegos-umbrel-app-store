@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Format: <app-id>_<docker-service-name>_1
+      APP_HOST: meegosgift-nas-movie-tools_server_1
+      APP_PORT: 3000
+      # The app has its own login (admin / Umbrel-generated password), so skip
+      # Umbrel's login in front of it.
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    # Umbrel only pulls on install/update. To upgrade: `docker pull
+    # ghcr.io/bidabrain/nas_movie_tools:latest` and restart the app, or bump
+    # `version` in umbrel-app.yml so Umbrel offers an update.
+    image: ghcr.io/bidabrain/nas_movie_tools:latest
+    restart: on-failure
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      UMASK: "022"
+      TZ: Asia/Shanghai
+      # Create the admin account on first start with the Umbrel-generated password.
+      ADMIN_USER: admin
+      ADMIN_PASSWORD: ${APP_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      # Mount the common parent of downloads and the media library so hardlinks
+      # work (same filesystem, same mount). Downloads = /data/downloads.
+      - ${UMBREL_ROOT}/data/storage:/data
