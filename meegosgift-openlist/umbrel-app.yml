@@ -4,7 +4,7 @@ name: OpenList
 tagline: A new AList fork to anti trust crisis
 icon: https://cdn.jsdelivr.net/gh/Cp0204/CasaOS-AppStore-Play@main/Apps/openlist/icon.png
 category: files
-version: "4.2.9"
+version: "4.2.9-1"
 port: 5244
 description: >-
   A file list program that supports multiple storages, powered by Gin and
@@ -31,7 +31,7 @@ support: https://github.com/OpenListTeam/OpenList/issues
 gallery:
   - https://cdn.jsdelivr.net/gh/Cp0204/CasaOS-AppStore-Play@main/Apps/openlist/screenshot-1.png
 releaseNotes: >-
-  Initial release in the MeegosGift App Store, based on OpenList v4.2.9.
+  Fix startup failure: run as Umbrel user (1000:1000) so OpenList can write to its data directory.
 dependencies: []
 path: ""
 defaultUsername: "admin"

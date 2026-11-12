@@ -9,10 +9,11 @@ services:
 
   server:
     image: openlistteam/openlist:v4.2.9
+    # OpenList >= v4.1.0 runs as a non-root user (UID 1001) and ignores PUID/PGID.
+    # Run as Umbrel's user so it can write to the app data and Downloads folders.
+    user: "1000:1000"
     restart: on-failure
     environment:
-      PUID: "1000"
-      PGID: "1000"
       UMASK: "022"
     volumes:
       - ${APP_DATA_DIR}/data:/opt/openlist/data
