@@ -1,0 +1,50 @@
+manifestVersion: 1
+id: meegosgift-easyovl
+name: EasyOVL
+tagline: 一键部署 Overleaf 扩展社区版，并通过 Cloudflare Tunnel 分享到公网
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/overleaf.png
+category: developer
+version: "latest"
+port: 8185
+description: >-
+  EasyOVL 是一个网页控制台，用 Docker 一键部署 Overleaf 扩展社区版 (CE+)，站点、注册、编译、
+  邮件、外网访问全部在网页里设置；可通过 Cloudflare Tunnel 安全地把 Overleaf 分享到公网，
+  支持沙盒编译、用户管理、备份与恢复。
+
+
+  使用 / Usage:
+
+  1. 打开本应用，第一次进入时设置控制台管理密码。
+
+  2. 在「站点」页确认 Overleaf 端口（默认 8080，如与其他应用冲突请修改），回到「概览」点
+  「启动 / 应用配置」。首次需下载约 2–3 GB 镜像。
+
+  3. 启动完成后打开 http://umbrel.local:<端口>/launchpad 创建第一个 Overleaf 管理员。
+
+
+  注意 / Notes:
+
+  - Overleaf 镜像只支持 x86_64 (amd64)。
+
+  - 控制台通过 /var/run/docker.sock 管理 Docker，等同宿主机管理员权限，请设置强密码。
+
+  - Overleaf 容器（overleaf-*）和数据卷由控制台创建，不随本应用卸载而删除；卸载前请先在
+  控制台中「移除容器」，数据卷需手动 docker volume rm。
+
+
+  A web console that deploys Overleaf CE+ with Docker and can publish it via
+  Cloudflare Tunnel. Overleaf runs as a separate compose project managed by the
+  console through the Docker socket (amd64 only).
+developer: bidabrain
+website: https://github.com/bidabrain/easyovl
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://github.com/bidabrain/easyovl
+support: https://github.com/bidabrain/easyovl/issues
+gallery: []
+releaseNotes: >-
+  Initial release in the MeegosGift App Store (ghcr.io/bidabrain/easyovl:latest).
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

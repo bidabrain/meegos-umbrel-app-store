@@ -1,0 +1,42 @@
+manifestVersion: 1
+id: meegosgift-wa-tg-bridge
+name: WA-TG Bridge
+tagline: 把 WhatsApp 消息转发到 Telegram，网页内置安卓模拟器
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/whatsapp.png
+category: social
+version: "latest"
+port: 8181
+description: >-
+  把 WhatsApp 消息转发到 Telegram 的一体化镜像，所有操作都在网页里完成：浏览器里通过 noVNC
+  操作安卓模拟器和官方 WhatsApp，用 watgbridge 以「关联设备」身份把消息转发到 Telegram
+  超级群组的话题中，支持从 Telegram 回复。支持自动开机保活、关联失效提醒、在线更新。
+
+
+  运行要求 / Requirements:
+
+  - 仅支持 x86_64 (amd64)。
+
+  - 安卓模拟器需要 /dev/kvm；模拟器运行时约需 3–4 GB 内存，镜像约 6–8 GB，数据约 6 GB。
+
+  - 宿主机没有 /dev/kvm 时应用无法启动，需要去掉 compose 中的 devices 配置。
+
+
+  登录：管理面板密码见 Umbrel 显示。按「概览」页的设置向导完成配置。
+
+
+  All-in-one WhatsApp → Telegram bridge with a web panel and a built-in
+  Android emulator (official WhatsApp via noVNC). amd64 only; the emulator
+  needs /dev/kvm. Panel password is shown in Umbrel.
+developer: bidabrain
+website: https://github.com/bidabrain/wa
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://github.com/bidabrain/wa
+support: https://github.com/bidabrain/wa/issues
+gallery: []
+releaseNotes: >-
+  Initial release in the MeegosGift App Store (ghcr.io/bidabrain/wa:latest).
+dependencies: []
+path: ""
+defaultUsername: ""
+deterministicPassword: true

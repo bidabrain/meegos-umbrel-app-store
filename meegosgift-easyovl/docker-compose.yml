@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Format: <app-id>_<docker-service-name>_1
+      APP_HOST: meegosgift-easyovl_server_1
+      APP_PORT: 8090
+
+  server:
+    # Umbrel only pulls on install/update; to upgrade run
+    # `docker pull ghcr.io/bidabrain/easyovl:latest` and restart the app.
+    image: ghcr.io/bidabrain/easyovl:latest
+    restart: on-failure
+    volumes:
+      # The console drives the host Docker daemon to create the Overleaf stack
+      # (compose project "overleaf": sharelatex, mongo, redis, cloudflared).
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Console config, generated stack compose file and backups
+      - ${APP_DATA_DIR}/data:/data

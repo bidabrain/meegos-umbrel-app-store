@@ -5,7 +5,7 @@ tagline: 自托管的第三方微博：服务端持续抓取 + 轻量安卓客�
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/weibo.png
 category: social
 version: "latest"
-port: 8686
+port: 8689
 description: >-
   WeiboX 是自托管的第三方微博匿名浏览方案。服务端定时抓取你关注用户的微博，处理微博的防爬
   与验证码；安卓客户端只连接你自己的服务端，支持时间线、热门、特别关注、主页、评论、搜索。
@@ -20,7 +20,7 @@ description: >-
 
   2. 在「设置 → API Token」中新建 Token，搜索并关注用户。
 
-  3. 安卓 app 设置中填写服务器地址 http://umbrel.local:8686（或局域网 IP:8686）和 API Token。
+  3. 安卓 app 设置中填写服务器地址 http://umbrel.local:8689（或局域网 IP:8689）和 API Token。
 
 
   FCM 推送（可选）：把你自己 Firebase 项目的服务账号私钥命名为 firebase-key.json，放到
@@ -31,7 +31,7 @@ description: >-
   scrapes the users you follow and handles anti-scraping and captchas; the
   Android client only talks to your server. Log in to the WebUI with the
   password shown in Umbrel, create an API Token and point the app to
-  http://umbrel.local:8686.
+  http://umbrel.local:8689.
 developer: bidabrain
 website: https://github.com/bidabrain/weiboX-server
 submitter: meegosgift

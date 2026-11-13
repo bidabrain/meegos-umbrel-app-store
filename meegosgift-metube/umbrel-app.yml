@@ -5,7 +5,7 @@ tagline: Download your favorite videos easily with MeTube
 icon: https://cdn.jsdelivr.net/gh/Cp0204/CasaOS-AppStore-Play@main/Apps/metube/icon.png
 category: media
 version: "2026.11.10"
-port: 8081
+port: 8187
 description: >-
   MeTube is a self-hosted YouTube downloader with a web UI for yt-dlp, enabling
   easy downloading of your favorite videos from YouTube and many other sites.

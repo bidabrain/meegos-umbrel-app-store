@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Format: <app-id>_<docker-service-name>_1
+      APP_HOST: meegosgift-wa-tg-bridge_server_1
+      APP_PORT: 8080
+
+  server:
+    # amd64 only. Umbrel only pulls on install/update; to upgrade run
+    # `docker pull ghcr.io/bidabrain/wa:latest` and restart the app.
+    image: ghcr.io/bidabrain/wa:latest
+    restart: on-failure
+    environment:
+      # Panel password = Umbrel-generated password (deterministicPassword).
+      WEB_PASSWORD: ${APP_PASSWORD}
+      TZ: Asia/Shanghai
+      # EMU_RAM_MB: "3072"
+      # EMU_CORES: "2"
+    devices:
+      # Required for the Android emulator. If the host has no /dev/kvm the app
+      # will not start: remove these two lines (pair with a real phone instead).
+      - /dev/kvm:/dev/kvm
+    volumes:
+      # Config, WhatsApp session, emulator disk (~6 GB), logs
+      - ${APP_DATA_DIR}/data:/data
