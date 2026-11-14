@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Format: <app-id>_<docker-service-name>_1
+      APP_HOST: meegosgift-wechat2tg_server_1
+      APP_PORT: 8080
+
+  server:
+    # amd64 only. Umbrel only pulls on install/update; to upgrade run
+    # `docker pull ghcr.io/bidabrain/wechat2tg:latest` and restart the app.
+    image: ghcr.io/bidabrain/wechat2tg:latest
+    restart: on-failure
+    environment:
+      # Panel password = Umbrel-generated password (deterministicPassword).
+      WEB_PASSWORD: ${APP_PASSWORD}
+      TZ: Asia/Shanghai
+      # Telegram settings can be filled in the panel instead:
+      # TG_BOT_TOKEN: ""
+      # TG_CHAT_ID: ""
+    cap_add:
+      # Required: read WeChat process memory to extract the database key.
+      - SYS_PTRACE
+    # WeChat (Electron/CEF) needs a larger /dev/shm.
+    shm_size: "1g"
+    volumes:
+      # Login state, chat database, config, logs
+      - ${APP_DATA_DIR}/data:/data

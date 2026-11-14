@@ -1,0 +1,47 @@
+manifestVersion: 1
+id: meegosgift-wechat2tg
+name: WeChat2TG
+tagline: 常驻 Linux 版微信，把微信消息转发到 Telegram
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wechat.png
+category: social
+version: "latest"
+port: 8184
+description: >-
+  在容器里常驻运行 Linux 桌面版微信，解密本地数据库实时采集消息（文字、图片、表情、链接、群消息）
+  并转发到 Telegram，支持在 Telegram 话题中直接回复到微信。通过 Web 面板（noVNC）扫码登录、
+  配置转发、查看日志。无需安卓模拟器 / KVM。
+
+
+  使用 / Usage:
+
+  1. 打开本应用，用 Umbrel 显示的密码登录面板。
+
+  2. 在 noVNC 画面中用手机微信扫码登录（容器里的微信作为「电脑」设备，会挤下你其他电脑端微信）。
+
+  3. 在面板「Telegram」中填写 Bot Token 和 Chat ID；推荐用开启了 Topics 的群，并给 bot
+  「管理话题」权限。
+
+
+  注意 / Notes:
+
+  - 仅支持 x86_64 (amd64)。
+
+  - 项目处于开发阶段，任何非官方用法都有封号风险，建议使用小号、自担风险。
+
+
+  Runs the Linux WeChat desktop client in a container, reads messages from its
+  decrypted local database and forwards them to Telegram (replies supported via
+  forum topics). Log in by scanning the QR code in the web panel. amd64 only.
+developer: bidabrain
+website: https://github.com/bidabrain/wechat2tg
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://github.com/bidabrain/wechat2tg
+support: https://github.com/bidabrain/wechat2tg/issues
+gallery: []
+releaseNotes: >-
+  Initial release in the MeegosGift App Store (ghcr.io/bidabrain/wechat2tg:latest).
+dependencies: []
+path: ""
+defaultUsername: ""
+deterministicPassword: true
