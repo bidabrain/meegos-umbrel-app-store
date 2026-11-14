@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Format: <app-id>_<docker-service-name>_1
+      APP_HOST: meegosgift-qq2tg_server_1
+      APP_PORT: 8080
+
+  server:
+    # Umbrel only pulls on install/update. To upgrade: `docker pull
+    # ghcr.io/bidabrain/qq2tg:latest` and restart the app, or bump `version`
+    # in umbrel-app.yml so Umbrel offers an update.
+    image: ghcr.io/bidabrain/qq2tg:latest
+    restart: on-failure
+    environment:
+      # Panel password = Umbrel-generated password (deterministicPassword).
+      WEB_PASSWORD: ${APP_PASSWORD}
+      TZ: Asia/Shanghai
+    # Required: read QQ process memory / gdb breakpoints to get the DB key.
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    # QQ (Electron/CEF) needs a larger /dev/shm.
+    shm_size: "1g"
+    volumes:
+      # Login state, chat databases, config, logs
+      - ${APP_DATA_DIR}/data:/data

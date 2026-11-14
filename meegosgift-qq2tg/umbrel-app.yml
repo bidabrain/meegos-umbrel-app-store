@@ -1,0 +1,50 @@
+manifestVersion: 1
+id: meegosgift-qq2tg
+name: QQ2TG
+tagline: 常驻 Linux 版 QQ，把 QQ 消息转发到 Telegram
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/qq.png
+category: social
+version: "latest"
+port: 8188
+description: >-
+  在容器里常驻运行官方 Linux 桌面版 QQ（NTQQ），只读解密本地聊天数据库实时采集新消息（文字、图片、
+  视频），并通过 Telegram Bot 转发；每个 QQ 会话对应 Telegram 群里的一个话题，支持在话题中直接
+  回复文字、图片、视频到 QQ。通过 Web 面板（noVNC）扫码登录、配置转发、查看日志。无需安卓模拟器 / KVM。
+
+
+  使用 / Usage:
+
+  1. 打开本应用，用 Umbrel 显示的密码登录面板。
+
+  2. 在「QQ 画面」标签中用手机 QQ 扫码登录。
+
+  3. 在「Telegram」标签中填写 Bot Token 和 Chat ID，勾选「QQ→TG 转发」「TG→QQ 回发」后保存；
+  推荐用开启了 Topics 的群，并给 bot「管理话题」权限。
+
+  4. bot 命令：/contacts [关键词] 列出最近会话；/synctopic 重新同步话题名称。
+
+
+  注意 / Notes:
+
+  - 仅支持 x86_64 (amd64)。
+
+  - 仅供学习研究，有封号风险，建议使用小号、自担风险。
+
+
+  Runs the official Linux QQ (NTQQ) desktop client in a container, reads new
+  messages from its decrypted local database and forwards them to Telegram,
+  one forum topic per QQ chat, with replies sent back to QQ. Log in by
+  scanning the QR code in the web panel. amd64 only.
+developer: bidabrain
+website: https://github.com/bidabrain/qq2tg
+submitter: meegosgift
+submission: https://github.com/bidabrain/meegos-umbrel-app-store
+repo: https://github.com/bidabrain/qq2tg
+support: https://github.com/bidabrain/qq2tg/issues
+gallery: []
+releaseNotes: >-
+  Initial release in the MeegosGift App Store (ghcr.io/bidabrain/qq2tg:latest).
+dependencies: []
+path: ""
+defaultUsername: ""
+deterministicPassword: true
